@@ -8,4 +8,14 @@ import PersonalDetails from './PersonalDetails';
 import ProfileWidget from './ProfileWidget';
 import Sidenav from './Sidenav';
 
-export { AccountStats, ApiStatus, Branding, BusyIndicator, Filters, Header, Sidenav, ProfileWidget, PersonalDetails };
+export {
+    AccountStats,
+    ApiStatus,
+    Branding,
+    BusyIndicator,
+    Filters,
+    Header,
+    Sidenav,
+    ProfileWidget,
+    PersonalDetails
+};

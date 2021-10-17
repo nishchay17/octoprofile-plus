@@ -1,46 +1,14 @@
-import React, { lazy, Suspense } from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import { Container, Row } from 'react-bootstrap';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
+import { Routes } from './components/Routes';
 
-const Home = (lazy(() => import('./pages/Home')));
-const Start = (lazy(() => import('./pages/Start')));
-const BusyIndicator = (lazy(() => import('./components/shared/BusyIndicator')));
-
-const routes = [{
-  path: '/',
-  component: Start
-}, {
-  path: '/home',
-  component: Home
-}];
-
-const App = () => {
-  const switchRoute = (
-    <Switch>
-      {routes.map((route, index) => (
-        <Route
-          key={index}
-          exact
-          {...route}
-        />
-      ))}
-    </Switch>
-  );
-
-  return (
+const App = () => (
     <div className="App">
-      <Router>
-        <Suspense fallback={<BusyIndicator />}>
-          <Container fluid>
-            <Row>
-              {switchRoute}
-            </Row>
-          </Container>
-        </Suspense>
-      </Router>
+        <Router>
+            <Routes />
+        </Router>
     </div>
-  );
-}
+);
 
 export default App;

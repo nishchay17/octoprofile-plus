@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
-import PropTypes from "prop-types";
-import { Row, Col, Table } from "react-bootstrap";
-import PieChart from "./charts/PieChart";
-import { convertMapToArray } from "../utils/convertMapToArray";
+import React, { useEffect, useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { Row, Col, Table } from 'react-bootstrap';
+import PieChart from './charts/PieChart';
+import { convertMapToArray } from '../utils/convertMapToArray';
 
 const Analytics = ({ repoData }) => {
     const [analyticsData, setAnalyticsData] = useState([]),
@@ -24,23 +24,19 @@ const Analytics = ({ repoData }) => {
 
     useEffect(() => {
         const convertedData = convertMapToArray(extractLanguages());
-        console.log(convertedData);
-        setAnalyticsData((analyticsData) => [
-            ...analyticsData,
-            ...convertedData,
-        ]);
+        setAnalyticsData(analyticsData => [...analyticsData, ...convertedData]);
     }, [extractLanguages]);
 
     return (
         <Row className="analytics pt-4">
-            <h5 className="mt-0 mb-4 col-12">Top Technologies</h5>
+            <h5 className="mt-0 mb-4 col-12">Top Languages</h5>
             <Col sm={6} className="mb-3">
                 {analyticsData.length && (
                     <Table bordered hover variant="dark">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Technology</th>
+                                <th>Language</th>
                                 <th>Repositories</th>
                             </tr>
                         </thead>
@@ -74,7 +70,7 @@ const Analytics = ({ repoData }) => {
 };
 
 Analytics.propTypes = {
-    repoData: PropTypes.array.isRequired,
+    repoData: PropTypes.array.isRequired
 };
 
 export default Analytics;
